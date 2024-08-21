@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Blog Posts</h2>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a hx-get="/posts/{{ post.id }}" hx-target="#post-{{ post.id }}" hx-swap="afterend">
+                {{ post.title }}
+            </a>
+            <div id="post-{{ post.id }}"></div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
